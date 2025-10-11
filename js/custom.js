@@ -1,5 +1,5 @@
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+// const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+// const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
 
@@ -30,3 +30,16 @@ function checkFields() {
 inputs.forEach(function(input) {
   input.addEventListener('input', checkFields);
 });
+
+
+function recaptchaCallback(token) {
+  console.log("reCAPTCHA completado con token:", token);
+  // Podés habilitar el botón de envío o continuar con el submit
+}
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
