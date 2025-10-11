@@ -1,4 +1,5 @@
-/pages/success   /exito-formulario.html   200
-/success     /pages/exito-formulario.html   200
+/exito-formulario     /exito-formulario.html     200
+/* /pages/success   /exito-formulario.html   200 */
+/* /success     /pages/exito-formulario.html   200 */
 /*    /500.html   500
 /*    /404.html   404
