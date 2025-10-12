@@ -34,12 +34,34 @@ inputs.forEach(function(input) {
 
 function recaptchaCallback(token) {
   console.log("reCAPTCHA completado con token:", token);
-  // Podés habilitar el botón de envío o continuar con el submit
 }
 
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("form-contacto");
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    // Convertir FormData a formato URL-encoded
+    const encodedData = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      encodedData.append(key, value);
+    }
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData.toString(),
+      });
+
+      // Redirección manual
+      window.location.href = "/exito-formulario.html";
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert("Hubo un problema al enviar el formulario. Intentá nuevamente.");
+    }
+  });
+});

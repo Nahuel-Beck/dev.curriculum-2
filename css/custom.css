@@ -187,18 +187,24 @@ h4{
     }
 }
 
-.error404{
+.error404,
+.succes200 {
     display: flex;
     flex-wrap: wrap;
     place-content: center;
     height: 100vh;
 }
-.error404 > div{
+.error404 > div,
+.succes200 > div {
     width: 40vw;
     padding: 3rem;
     border: 1px solid #ef5285;
     border-radius: 10px;
     background-color: #f7f7f7;
+}
+
+.succes200 > div {
+    border: 1px solid #52ef74;
 }
 
 .exito-mensaje{
